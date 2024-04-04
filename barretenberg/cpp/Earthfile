@@ -86,6 +86,7 @@ source:
 preset-release:
     FROM +source
     RUN cmake --preset clang16 -Bbuild && cmake --build build --target bb
+    RUN touch hi
     SAVE ARTIFACT build/bin
 
 preset-release-assert:
