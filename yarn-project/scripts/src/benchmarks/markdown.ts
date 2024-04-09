@@ -194,8 +194,8 @@ export function getMarkdown() {
   const metricsTxPxeProcessing = Metrics.filter(m => m.name === 'tx_pxe_processing_time_ms').map(m => m.name);
   const metricsTxSeqProcessing = Metrics.filter(m => m.name === 'tx_sequencer_processing_time_ms').map(m => m.name);
 
-  const baseHash = process.env.BASE_COMMIT_HASH;
-  const baseUrl = baseHash && `[\`${baseHash.slice(0, 8)}\`](${S3_URL}/benchmarks-v1/master/${baseHash}.json)`;
+  const baseUrlPath = process.env.BASE_BENCH_PATH;
+  const baseUrl = baseUrlPath && `[\`${baseUrlPath.slice(0, 8)}\`](${S3_URL}/benchmarks-v1/master/${baseUrlPath}.json)`;
   const baseCommitText = baseUrl
     ? `\nValues are compared against data from master at commit ${baseUrl} and shown if the difference exceeds 1%.`
     : '';
